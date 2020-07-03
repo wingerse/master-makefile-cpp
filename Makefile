@@ -45,7 +45,7 @@ obj/$(BUILD_FOLDER)/%.o: src/%.cpp
 res_obj = $(patsubst res/%,obj/res/%.o,$(res))
 obj/res/%.o: res/%
 	mkdir -p $(@D)
-	embed -h $< > $(patsubst %.o, %.h, $@)
+	embed -h $< > $(patsubst %.o, %.hpp, $@)
 	embed $< | $(CC) -c -o $@ -xc -
 
 main: $(res_obj) $(obj)
